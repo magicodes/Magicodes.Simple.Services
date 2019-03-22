@@ -1,0 +1,59 @@
+version: '3.4'
+
+services:
+  magicodes.apigateway.host:
+    image: ${DOCKER_REGISTRY-}magicodesapigatewayhost
+    build:
+      context: .
+      dockerfile: src/Magicodes.ApiGateway/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "10001:80"
+
+  magicodes.identityserver.host:
+    image: ${DOCKER_REGISTRY-}magicodesidentityserverhost
+    build:
+      context: .
+      dockerfile: src/Magicodes.IdentityServer.Host/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "10002:80"
+
+  services.test1:
+    image: ${DOCKER_REGISTRY-}servicestest1
+    build:
+      context: .
+      dockerfile: src/Services.Test1/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+    - "10003:80"
+
+  services.test2:
+    image: ${DOCKER_REGISTRY-}servicestest2
+    build:
+      context: .
+      dockerfile: src/Services.Test2/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+    - "10004:80"
+
+
+  magicodes.simple.services.host:
+    image: ${DOCKER_REGISTRY-}magicodessimpleserviceshost
+    build:
+      context: .
+      dockerfile: src/Magicodes.Simple.Services.Host/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "10005:80"
+

@@ -1,0 +1,26 @@
+{
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": 10001,
+      "Type": "Consul"
+    }
+  },
+  "ReRoutes": [
+    {
+      "UpstreamPathTemplate": "/api/{url}",
+      "UpstreamHttpMethod": [ "Post", "Get" ],
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "127.0.0.1",
+          "Port": 5000
+        }
+      ]
+    }
+  ]
+}
