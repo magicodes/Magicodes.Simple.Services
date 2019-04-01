@@ -27,7 +27,6 @@ namespace Magicodes.Simple.Services.Host
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddOcelot(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,7 +38,6 @@ namespace Magicodes.Simple.Services.Host
             }
 
             app.UseMvc();
-            app.UseOcelot().Wait();
         }
     }
 }

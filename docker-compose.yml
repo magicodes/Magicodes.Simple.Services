@@ -8,20 +8,24 @@ services:
       dockerfile: src/Magicodes.ApiGateway/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://+:80
+      - ASPNETCORE_URLS=http://+:10001
     ports:
-      - "10001:80"
+      - "10001:10001"
+    # network_mode: 'host'
+    links:
+      - services.test1
+      - services.test2
 
-  magicodes.identityserver.host:
-    image: ${DOCKER_REGISTRY-}magicodesidentityserverhost
-    build:
-      context: .
-      dockerfile: src/Magicodes.IdentityServer.Host/Dockerfile
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://+:80
-    ports:
-      - "10002:80"
+  # magicodes.identityserver.host:
+  #   image: ${DOCKER_REGISTRY-}magicodesidentityserverhost
+  #   build:
+  #     context: .
+  #     dockerfile: src/Magicodes.IdentityServer.Host/Dockerfile
+  #   environment:
+  #     - ASPNETCORE_ENVIRONMENT=Development
+  #     - ASPNETCORE_URLS=http://+:80
+  #   ports:
+  #     - "10002:80"
 
   services.test1:
     image: ${DOCKER_REGISTRY-}servicestest1
@@ -30,9 +34,9 @@ services:
       dockerfile: src/Services.Test1/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://+:80
+      - ASPNETCORE_URLS=http://+:10003
     ports:
-    - "10003:80"
+    - "10003:10003"
 
   services.test2:
     image: ${DOCKER_REGISTRY-}servicestest2
@@ -41,19 +45,20 @@ services:
       dockerfile: src/Services.Test2/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://+:80
+      - ASPNETCORE_URLS=http://+:10004
     ports:
-    - "10004:80"
+    - "10004:10004"
 
 
-  magicodes.simple.services.host:
-    image: ${DOCKER_REGISTRY-}magicodessimpleserviceshost
-    build:
-      context: .
-      dockerfile: src/Magicodes.Simple.Services.Host/Dockerfile
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://+:80
-    ports:
-      - "10005:80"
+  # magicodes.simple.services.host:
+  #   image: ${DOCKER_REGISTRY-}magicodessimpleserviceshost
+  #   build:
+  #     context: .
+  #     dockerfile: src/Magicodes.Simple.Services.Host/Dockerfile
+  #   environment:
+  #     - ASPNETCORE_ENVIRONMENT=Development
+  #     - ASPNETCORE_URLS=http://+:80
+  #   ports:
+  #     - "10005:80"
+
 

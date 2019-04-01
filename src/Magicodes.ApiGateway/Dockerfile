@@ -13,7 +13,9 @@ RUN dotnet build "Magicodes.ApiGateway.Host.csproj" -c Release -o /app
 FROM build AS publish
 RUN dotnet publish "Magicodes.ApiGateway.Host.csproj" -c Release -o /app
 
+
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "Magicodes.ApiGateway.Host.dll"]
+

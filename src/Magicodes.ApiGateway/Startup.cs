@@ -30,32 +30,33 @@ namespace Magicodes.ApiGateway.Host
         public void ConfigureServices(IServiceCollection services)
         {
             //Identity Server Bearer Tokens
-            services.AddAuthentication().AddIdentityServerAuthentication("IdentityBearer", options =>
-            {
-                options.Authority = "http://localhost:2000/";
-                options.RequireHttpsMetadata = false;
-                options.ApiName = "client";
-                options.ApiSecret = "def2edf7-5d42-4edc-a84a-30136c340e13";
-                options.SupportedTokens = IdentityServer4.AccessTokenValidation.SupportedTokens.Both;
-            });
+            //services.AddAuthentication().AddIdentityServerAuthentication("IdentityBearer", options =>
+            //{
+            //    options.Authority = "http://localhost:2000/";
+            //    options.RequireHttpsMetadata = false;
+            //    options.ApiName = "client";
+            //    options.ApiSecret = "def2edf7-5d42-4edc-a84a-30136c340e13";
+            //    options.SupportedTokens = IdentityServer4.AccessTokenValidation.SupportedTokens.Both;
+            //});
 
             services
-                .AddOcelot()
-                .AddConsul()
+                .AddOcelot(Configuration)
+                //.AddConsul()
                 //启用缓存
                 .AddCacheManager(x =>
                 {
                     x.WithDictionaryHandle();
                 })
                 .AddPolly()
-                .AddAdministration("/administration", options=>
-                {
-                    options.Authority = "http://localhost:2000/";
-                    options.RequireHttpsMetadata = false;
-                    options.ApiName = "admin";
-                    options.ApiSecret = "07ABB7E9-233B-4ABC-83AB-7D191F7BBF7E";
-                    options.SupportedTokens = IdentityServer4.AccessTokenValidation.SupportedTokens.Both;
-                }); 
+                //.AddAdministration("/administration", options=>
+                //{
+                //    options.Authority = "http://localhost:2000/";
+                //    options.RequireHttpsMetadata = false;
+                //    options.ApiName = "admin";
+                //    options.ApiSecret = "07ABB7E9-233B-4ABC-83AB-7D191F7BBF7E";
+                //    options.SupportedTokens = IdentityServer4.AccessTokenValidation.SupportedTokens.Both;
+                //})
+                ; 
 
         }
 

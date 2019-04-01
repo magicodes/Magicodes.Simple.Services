@@ -12,7 +12,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.0.2105168" />
     <PackageReference Include="Magicodes.Mvc.TrustIp" Version="1.0.6" />
-    <PackageReference Include="Ocelot" Version="13.0.0" />
+    <!--<PackageReference Include="Microsoft.Extensions.Caching.Redis" Version="2.2.0" />-->
   </ItemGroup>
 
   <ItemGroup>

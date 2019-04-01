@@ -1,62 +1,96 @@
 {
   "GlobalConfiguration": {
-    //服务发现提供程序
-    "ServiceDiscoveryProvider": {
-      "Host": "localhost",
-      "Port": 10001,
-      "Type": "PollConsul",
-      "PollingInterval": 1000
-    },
+    ////服务发现提供程序
+    //"ServiceDiscoveryProvider": {
+    //  "Host": "localhost",
+    //  "Port": 10001,
+    //  "Type": "PollConsul",
+    //  "PollingInterval": 1000
+    //},
     //外部访问路径
-    "BaseUrl": "http://localhost:10001",
-    //限速配置
-    "RateLimitOptions": {
-      //白名单
-      "ClientWhitelist": [],
-      "EnableRateLimiting": true,
-      //限制时间段，例如1s，5m，1h，1d
-      "Period": "1s",
-      //重试等待的时间间隔（秒）
-      "PeriodTimespan": 1,
-      //限制
-      "Limit": 1,
-      //自定义消息
-      "QuotaExceededMessage": "单位时间内请求次数超过限制！",
-      "HttpStatusCode": 999
-    },
-    //熔断配置
-    "QoSOptions": {
-      "ExceptionsAllowedBeforeBreaking": 3,
-      "DurationOfBreak": 5,
-      //超时值(毫秒)
-      "TimeoutValue": 5000
-    }
+    "BaseUrl": "http://localhost:10001"
+    //,
+    ////限速配置
+    //"RateLimitOptions": {
+    //  //白名单
+    //  "ClientWhitelist": [],
+    //  "EnableRateLimiting": true,
+    //  //限制时间段，例如1s，5m，1h，1d
+    //  "Period": "1s",
+    //  //重试等待的时间间隔（秒）
+    //  "PeriodTimespan": 1,
+    //  //限制
+    //  "Limit": 1,
+    //  //自定义消息
+    //  "QuotaExceededMessage": "单位时间内请求次数超过限制！",
+    //  "HttpStatusCode": 999
+    //},
+    ////熔断配置
+    //"QoSOptions": {
+    //  "ExceptionsAllowedBeforeBreaking": 3,
+    //  "DurationOfBreak": 5,
+    //  //超时值(毫秒)
+    //  "TimeoutValue": 5000
+    //}
   },
   "ReRoutes": [
     {
-      "UpstreamPathTemplate": "/api/{url}",
+      "UpstreamPathTemplate": "/api/test1/{url}",
       "UpstreamHttpMethod": [ "Post", "Get" ],
-      "DownstreamPathTemplate": "/{url}",
+      //"UpstreamHost": "localhost",
+      "DownstreamPathTemplate": "/api/{url}",
       "DownstreamScheme": "http",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "IdentityBearer",
-        "AllowedScopes": []
-      },
+      "ServiceName": "test1",
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "IdentityBearer",
+      //  "AllowedScopes": []
+      //},
       "DownstreamHostAndPorts": [
         {
-          "Host": "127.0.0.1",
-          "Port": 5000
+          "Host": "services.test1",
+          "Port": 10003
         }
-      ],
-      //缓存配置
-      "FileCacheOptions": {
-        "TtlSeconds": 15,
-        "Region": "test"
-      },
-      //负载均衡
-      "LoadBalancerOptions": {
-        "Type": "LeastConnection"
-      }
+      ]
+      //,
+      ////缓存配置
+      //"FileCacheOptions": {
+      //  "TtlSeconds": 15,
+      //  "Region": "test"
+      //}
+      //,
+      ////负载均衡
+      //"LoadBalancerOptions": {
+      //  "Type": "LeastConnection"
+      //}
+    },
+    {
+      "UpstreamPathTemplate": "/api/test2/{url}",
+      "UpstreamHttpMethod": [ "Post", "Get" ],
+      //"UpstreamHost": "localhost",
+      "DownstreamPathTemplate": "/api/{url}",
+      "DownstreamScheme": "http",
+      "ServiceName": "test2",
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "IdentityBearer",
+      //  "AllowedScopes": []
+      //},
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "services.test2",
+          "Port": 10004
+        }
+      ]
+      //,
+      ////缓存配置
+      //"FileCacheOptions": {
+      //  "TtlSeconds": 15,
+      //  "Region": "test"
+      //}
+      //,
+      ////负载均衡
+      //"LoadBalancerOptions": {
+      //  "Type": "LeastConnection"
+      //}
     }
   ]
 }
