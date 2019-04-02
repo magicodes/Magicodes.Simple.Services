@@ -132,11 +132,11 @@
         "DurationOfBreak": 10,
         "TimeoutValue": 5000
       },
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": [
-        ]
-      }
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "Bearer",
+      //  "AllowedScopes": [
+      //  ]
+      //}
     },
     //API2œÓƒø≈‰÷√
     {
@@ -160,11 +160,11 @@
         "DurationOfBreak": 10,
         "TimeoutValue": 5000
       },
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": [
-        ]
-      }
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "Bearer",
+      //  "AllowedScopes": [
+      //  ]
+      //}
     }
   ]
 }
