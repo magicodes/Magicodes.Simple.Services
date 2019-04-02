@@ -86,7 +86,7 @@
     //swagger API1ÅäÖÃ
     {
       "DownstreamPathTemplate": "/SwaggerAPI1/swagger.json",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "UpstreamPathTemplate": "/SwaggerAPI1/swagger.json",
       "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
       "DownstreamHostAndPorts": [
@@ -99,7 +99,7 @@
     //swagger API2ÅäÖÃ
     {
       "DownstreamPathTemplate": "/SwaggerAPI2/swagger.json",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "UpstreamPathTemplate": "/SwaggerAPI2/swagger.json",
       "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
       "DownstreamHostAndPorts": [
@@ -112,7 +112,7 @@
     //API1ÏîÄ¿ÅäÖÃ
     {
       "DownstreamPathTemplate": "/api1/{url}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "UpstreamPathTemplate": "/api/{url}",
       "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Put" ],
       "ServiceName": "API1",
@@ -141,7 +141,7 @@
     //API2ÏîÄ¿ÅäÖÃ
     {
       "DownstreamPathTemplate": "/api2/{url}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "UpstreamPathTemplate": "/api/{url}",
       "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Put" ],
       "ServiceName": "API2",
