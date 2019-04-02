@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Services.Test1.Controllers
+namespace Magicodes.ApiGateway.Host.Controllers
 {
-    [Route("api1/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {

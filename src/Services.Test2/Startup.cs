@@ -30,7 +30,7 @@ namespace Services.Test2
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("Test2", new Info { Title = "Test2 API", Version = "v1" });
+                options.SwaggerDoc("SwaggerAPI2", new Info { Title = "API2", Version = "v1" });
                 var basePath = PlatformServices.Default.Application.ApplicationBasePath;
                 var xmlPath = Path.Combine(basePath, "Services.Test2.xml");
                 options.IncludeXmlComments(xmlPath);
@@ -48,7 +48,7 @@ namespace Services.Test2
             app.UseSwagger(c => { c.RouteTemplate = "{documentName}/swagger.json"; });
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/Test2/swagger.json", "Test2");
+                c.SwaggerEndpoint("/SwaggerAPI2/swagger.json", "API2");
             });
             app.UseMvc();
             

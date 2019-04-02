@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:35526",
+      "applicationUrl": "http://localhost:13004",
       "sslPort": 0
     }
   },
@@ -13,7 +13,7 @@
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
     },
     "Magicodes.IdentityServer.Host": {
       "commandName": "Project",
@@ -21,7 +21,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:5000"
+      "applicationUrl": "http://localhost:13004"
     },
     "Docker": {
       "commandName": "Docker",

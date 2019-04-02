@@ -82,24 +82,79 @@
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       }
+    },
+    //swagger API1≈‰÷√
+    {
+      "DownstreamPathTemplate": "/SwaggerAPI1/swagger.json",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/SwaggerAPI1/swagger.json",
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 13001
+        }
+      ]
+    },
+    //swagger API2≈‰÷√
+    {
+      "DownstreamPathTemplate": "/SwaggerAPI2/swagger.json",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/SwaggerAPI2/swagger.json",
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 13002
+        }
+      ]
+    },
+    //API1œÓƒø≈‰÷√
+    {
+      "DownstreamPathTemplate": "/api1/{url}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api1/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Put" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 13001
+        }
+      ],
+
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 3,
+        "DurationOfBreak": 10,
+        "TimeoutValue": 5000
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": [
+        ]
+      }
+    },
+    //API2œÓƒø≈‰÷√
+    {
+      "DownstreamPathTemplate": "/api2/{url}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api2/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Put" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 13002
+        }
+      ],
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 3,
+        "DurationOfBreak": 10,
+        "TimeoutValue": 5000
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": [
+        ]
+      }
     }
-
-    //{
-
-    //  "DownstreamPathTemplate": "/Test1/swagger.json",
-
-    //  "DownstreamScheme": "http",
-
-    //  "ServiceName": "test1api",
-
-    //  "LoadBalancer": "RoundRobin",
-
-    //  "UseServiceDiscovery": true,
-
-    //  "UpstreamPathTemplate": "/Test1/swagger.json",
-
-    //  "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ]
-
-    //}
   ]
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Consul;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -28,14 +29,16 @@ namespace Services.Test1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("Test1", new Info { Title = "Test1 API", Version = "v1" });
+                options.SwaggerDoc("SwaggerAPI1", new Info { Title = "API1", Version = "v1" });
                 var basePath = PlatformServices.Default.Application.ApplicationBasePath;
                 var xmlPath = Path.Combine(basePath, "Services.Test1.xml");
                 options.IncludeXmlComments(xmlPath);
             });
+
+            //服务注册
+            //services.Configure<ServiceRegistrationOptions>
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,7 +51,7 @@ namespace Services.Test1
             app.UseSwagger(c => { c.RouteTemplate = "{documentName}/swagger.json"; });
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/Test1/swagger.json", "Test1");
+                c.SwaggerEndpoint("/SwaggerAPI1/swagger.json", "API1");
             });
             app.UseMvc();
         }
