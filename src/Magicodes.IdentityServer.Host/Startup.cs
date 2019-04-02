@@ -72,10 +72,7 @@ namespace Magicodes.IdentityServer.Host
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("IdentityServer is running!");
-            });
+            app.UseIdentityServer();
         }
     }
 }
