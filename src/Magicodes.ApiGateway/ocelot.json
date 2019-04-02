@@ -2,7 +2,7 @@
   "GlobalConfiguration": {
     //服务发现提供程序
     "ServiceDiscoveryProvider": {
-      "Host": "apigateway.xin-lai.com",
+      "Host": "111.230.118.59",
       "Port": 80,
       "Type": "PollConsul",
       "PollingInterval": 1000
@@ -91,8 +91,8 @@
       "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 13001
+          "Host": "119.29.50.115",
+          "Port": 80
         }
       ]
     },
@@ -104,8 +104,8 @@
       "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 13002
+          "Host": "111.230.160.62",
+          "Port": 80
         }
       ]
     },
@@ -115,10 +115,15 @@
       "DownstreamScheme": "http",
       "UpstreamPathTemplate": "/api1/{url}",
       "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Put" ],
+      "ServiceName": "API1",
+      "UseServiceDiscovery": true,
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 13001
+          "Host": "119.29.50.115",
+          "Port": 80
         }
       ],
 
@@ -139,10 +144,15 @@
       "DownstreamScheme": "http",
       "UpstreamPathTemplate": "/api2/{url}",
       "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Put" ],
+      "ServiceName": "API2",
+      "UseServiceDiscovery": true,
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 13002
+          "Host": "111.230.160.62",
+          "Port": 80
         }
       ],
       "QoSOptions": {
