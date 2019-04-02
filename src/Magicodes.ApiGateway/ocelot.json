@@ -92,7 +92,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "119.29.50.115",
-          "Port": 80
+          "Port": 443
         }
       ]
     },
@@ -105,7 +105,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "111.230.160.62",
-          "Port": 80
+          "Port": 443
         }
       ]
     },
@@ -123,7 +123,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "119.29.50.115",
-          "Port": 80
+          "Port": 443
         }
       ],
 
@@ -152,7 +152,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "111.230.160.62",
-          "Port": 80
+          "Port": 443
         }
       ],
       "QoSOptions": {
