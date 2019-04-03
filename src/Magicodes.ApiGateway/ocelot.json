@@ -86,44 +86,45 @@
     //swagger API1≈‰÷√
     {
       "DownstreamPathTemplate": "/SwaggerAPI1/swagger.json",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "UpstreamPathTemplate": "/SwaggerAPI1/swagger.json",
       "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
       "DownstreamHostAndPorts": [
         {
           "Host": "119.29.50.115",
-          "Port": 443
+          "Port": 80
         }
       ]
     },
     //swagger API2≈‰÷√
     {
       "DownstreamPathTemplate": "/SwaggerAPI2/swagger.json",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "UpstreamPathTemplate": "/SwaggerAPI2/swagger.json",
       "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
       "DownstreamHostAndPorts": [
         {
           "Host": "111.230.160.62",
-          "Port": 443
+          "Port": 80
         }
       ]
     },
     //API1œÓƒø≈‰÷√
     {
       "DownstreamPathTemplate": "/api1/{url}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "UpstreamPathTemplate": "/api/{url}",
       "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Put" ],
       "ServiceName": "API1",
       "UseServiceDiscovery": true,
+      "LoadBalancer": "RoundRobin",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       },
       "DownstreamHostAndPorts": [
         {
           "Host": "119.29.50.115",
-          "Port": 443
+          "Port": 80
         }
       ],
 
@@ -131,7 +132,7 @@
         "ExceptionsAllowedBeforeBreaking": 3,
         "DurationOfBreak": 10,
         "TimeoutValue": 5000
-      },
+      }
       //"AuthenticationOptions": {
       //  "AuthenticationProviderKey": "Bearer",
       //  "AllowedScopes": [
@@ -141,25 +142,26 @@
     //API2œÓƒø≈‰÷√
     {
       "DownstreamPathTemplate": "/api2/{url}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "UpstreamPathTemplate": "/api/{url}",
       "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Put" ],
       "ServiceName": "API2",
       "UseServiceDiscovery": true,
+      "LoadBalancer": "RoundRobin",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       },
       "DownstreamHostAndPorts": [
         {
           "Host": "111.230.160.62",
-          "Port": 443
+          "Port": 80
         }
       ],
       "QoSOptions": {
         "ExceptionsAllowedBeforeBreaking": 3,
         "DurationOfBreak": 10,
         "TimeoutValue": 5000
-      },
+      }
       //"AuthenticationOptions": {
       //  "AuthenticationProviderKey": "Bearer",
       //  "AllowedScopes": [
