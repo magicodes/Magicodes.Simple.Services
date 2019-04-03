@@ -113,7 +113,7 @@
     {
       "DownstreamPathTemplate": "/api1/{url}",
       "DownstreamScheme": "http",
-      "UpstreamPathTemplate": "/api/{url}",
+      "UpstreamPathTemplate": "/api/cloud/one/{url}",
       "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Put" ],
       "ServiceName": "API1",
       "UseServiceDiscovery": true,
@@ -143,7 +143,7 @@
     {
       "DownstreamPathTemplate": "/api2/{url}",
       "DownstreamScheme": "http",
-      "UpstreamPathTemplate": "/api/{url}",
+      "UpstreamPathTemplate": "/api/cloud/two/{url}",
       "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Put" ],
       "ServiceName": "API2",
       "UseServiceDiscovery": true,
