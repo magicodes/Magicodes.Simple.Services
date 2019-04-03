@@ -8,7 +8,8 @@
       "PollingInterval": 1000
     },
     //Õ‚≤ø∑√Œ ¬∑æ∂
-    "BaseUrl": "http://apigateway.xin-lai.com",
+    //"BaseUrl": "http://apigateway.xin-lai.com",
+    "BaseUrl": "http://localhost:13000",
     //œﬁÀŸ≈‰÷√
     "RateLimitOptions": {
       //∞◊√˚µ•
@@ -33,88 +34,65 @@
     }
   },
   "ReRoutes": [
-    {
-      "UpstreamPathTemplate": "/api/cloud/app/{url}",
-      "UpstreamHttpMethod": [ "Post", "Get" ],
-      "DownstreamPathTemplate": "/api/{url}",
-      "DownstreamScheme": "http",
-      //"AuthenticationOptions": {
-      //  "AuthenticationProviderKey": "IdentityBearer",
-      //  "AllowedScopes": []
-      //},
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "172.16.31.58",
-          "Port": 80
-        }
-      ],
-      //ª∫¥Ê≈‰÷√
-      "FileCacheOptions": {
-        "TtlSeconds": 15,
-        "Region": "test"
-      },
-      //∏∫‘ÿæ˘∫‚
-      "LoadBalancerOptions": {
-        "Type": "LeastConnection"
-      }
-    },
-    {
-      "UpstreamPathTemplate": "/api/cloud/logs/{url}",
-      "UpstreamHttpMethod": [ "Post" ],
-      "DownstreamPathTemplate": "/app/{url}",
-      "DownstreamScheme": "https",
-      //"AuthenticationOptions": {
-      //  "AuthenticationProviderKey": "IdentityBearer",
-      //  "AllowedScopes": []
-      //},
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "monitor.xin-lai.com",
-          "Port": 443
-        }
-      ],
-      ////ª∫¥Ê≈‰÷√
-      //"FileCacheOptions": {
-      //  "TtlSeconds": 15,
-      //  "Region": "test"
-      //},
-      //∏∫‘ÿæ˘∫‚
-      "LoadBalancerOptions": {
-        "Type": "LeastConnection"
-      }
-    },
-    //swagger API1≈‰÷√
-    {
-      "DownstreamPathTemplate": "/SwaggerAPI1/swagger.json",
-      "DownstreamScheme": "http",
-      "UpstreamPathTemplate": "/SwaggerAPI1/swagger.json",
-      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "119.29.50.115",
-          "Port": 80
-        }
-      ]
-    },
-    //swagger API2≈‰÷√
-    {
-      "DownstreamPathTemplate": "/SwaggerAPI2/swagger.json",
-      "DownstreamScheme": "http",
-      "UpstreamPathTemplate": "/SwaggerAPI2/swagger.json",
-      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "111.230.160.62",
-          "Port": 80
-        }
-      ]
-    },
+    
+    //{
+    //  "UpstreamPathTemplate": "/api/cloud/app/{url}",
+    //  "UpstreamHttpMethod": [ "Post", "Get" ],
+    //  "DownstreamPathTemplate": "/api/{url}",
+    //  "DownstreamScheme": "http",
+    //  //"AuthenticationOptions": {
+    //  //  "AuthenticationProviderKey": "IdentityBearer",
+    //  //  "AllowedScopes": []
+    //  //},
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "172.16.31.58",
+    //      "Port": 80
+    //    }
+    //  ],
+    //  //ª∫¥Ê≈‰÷√
+    //  "FileCacheOptions": {
+    //    "TtlSeconds": 15,
+    //    "Region": "test"
+    //  },
+    //  //∏∫‘ÿæ˘∫‚
+    //  "LoadBalancerOptions": {
+    //    "Type": "LeastConnection"
+    //  }
+    //},
+    //{
+    //  "UpstreamPathTemplate": "/api/cloud/logs/{url}",
+    //  "UpstreamHttpMethod": [ "Post" ],
+    //  "DownstreamPathTemplate": "/app/{url}",
+    //  "DownstreamScheme": "https",
+    //  //"AuthenticationOptions": {
+    //  //  "AuthenticationProviderKey": "IdentityBearer",
+    //  //  "AllowedScopes": []
+    //  //},
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "monitor.xin-lai.com",
+    //      "Port": 443
+    //    }
+    //  ],
+    //  ////ª∫¥Ê≈‰÷√
+    //  //"FileCacheOptions": {
+    //  //  "TtlSeconds": 15,
+    //  //  "Region": "test"
+    //  //},
+    //  //∏∫‘ÿæ˘∫‚
+    //  "LoadBalancerOptions": {
+    //    "Type": "LeastConnection"
+    //  }
+    //},
+
+
     //API1œÓƒø≈‰÷√
     {
+      "UpstreamPathTemplate": "/gateway/1/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Put" ],
       "DownstreamPathTemplate": "/api1/{url}",
       "DownstreamScheme": "http",
-      "UpstreamPathTemplate": "/api/cloud/one/{url}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Put" ],
       "ServiceName": "API1",
       "UseServiceDiscovery": true,
       "LoadBalancer": "RoundRobin",
@@ -125,6 +103,10 @@
         {
           "Host": "119.29.50.115",
           "Port": 80
+        },
+        {
+          "Host": "localhost",
+          "Port": 13001
         }
       ],
 
@@ -141,10 +123,10 @@
     },
     //API2œÓƒø≈‰÷√
     {
+      "UpstreamPathTemplate": "/gateway/2/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Put" ],
       "DownstreamPathTemplate": "/api2/{url}",
       "DownstreamScheme": "http",
-      "UpstreamPathTemplate": "/api/cloud/two/{url}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Put" ],
       "ServiceName": "API2",
       "UseServiceDiscovery": true,
       "LoadBalancer": "RoundRobin",
@@ -155,6 +137,10 @@
         {
           "Host": "111.230.160.62",
           "Port": 80
+        },
+        {
+          "Host": "localhost",
+          "Port": 13002
         }
       ],
       "QoSOptions": {
@@ -167,6 +153,40 @@
       //  "AllowedScopes": [
       //  ]
       //}
+    },
+    //swagger API1≈‰÷√
+    {
+      "DownstreamPathTemplate": "/SwaggerAPI1/swagger.json",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/SwaggerAPI1/swagger.json",
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "119.29.50.115",
+          "Port": 80
+        },
+        {
+          "Host": "localhost",
+          "Port": 13001
+        }
+      ]
+    },
+    //swagger API2≈‰÷√
+    {
+      "DownstreamPathTemplate": "/SwaggerAPI2/swagger.json",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/SwaggerAPI2/swagger.json",
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "111.230.160.62",
+          "Port": 80
+        },
+        {
+          "Host": "localhost",
+          "Port": 13002
+        }
+      ]
     }
   ]
 }
