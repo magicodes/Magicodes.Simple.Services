@@ -25,18 +25,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services.Test1", "src\Servi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services.Test2", "src\Services.Test2\Services.Test2.csproj", "{A93201D8-E5DD-4DD4-B6F7-0F9F6A3618EF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consul", "Consul", "{A12E55D6-67E0-4E50-88B7-738052733D2D}"
-	ProjectSection(SolutionItems) = preProject
-		src\Consul\consul.exe = src\Consul\consul.exe
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "conf", "conf", "{FBE1A93C-592A-4704-A7A1-E346E9DFCF88}"
-	ProjectSection(SolutionItems) = preProject
-		src\Consul\conf\service.json = src\Consul\conf\service.json
-		src\Consul\conf\watchs.json = src\Consul\conf\watchs.json
-		src\Consul\conf\xacl.json = src\Consul\conf\xacl.json
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,7 +68,6 @@ Global
 		{43249CA7-0660-4087-8CDC-A4BF76383A08} = {764A3CF1-453E-4A1F-ADC1-F0EDCE3CE7E9}
 		{D86AB88D-629B-412A-AE24-7D146A528A2C} = {22B4ED1D-72CD-471E-A798-1B8BF34A0A81}
 		{A93201D8-E5DD-4DD4-B6F7-0F9F6A3618EF} = {22B4ED1D-72CD-471E-A798-1B8BF34A0A81}
-		{FBE1A93C-592A-4704-A7A1-E346E9DFCF88} = {A12E55D6-67E0-4E50-88B7-738052733D2D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6135914E-561F-40CE-BF4B-4E4D46F40AE0}

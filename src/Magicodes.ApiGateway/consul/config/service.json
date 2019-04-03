@@ -1,0 +1,27 @@
+{
+  "services": [
+    {
+      "id": "API1",
+      "name": "API1",
+      "tags": [ "API1" ],
+      "address": "119.29.50.115",
+      "port": 80
+    },
+    {
+      "id": "API2",
+      "name": "API2",
+      "tags": [ "API2" ],
+      "address": "111.230.160.62",
+      "port": 80
+    }
+  ],
+  "check": [
+    {
+      "id": "API1Check",
+      "name": "API1Check",
+      "tcp": "119.29.50.115:80",
+      "interval": "10s",
+      "timeout": "1s"
+    }
+  ]
+}
