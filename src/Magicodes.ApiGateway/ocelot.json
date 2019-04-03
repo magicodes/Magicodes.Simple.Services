@@ -8,8 +8,8 @@
       "PollingInterval": 1000
     },
     //外部访问路径
-    //"BaseUrl": "http://apigateway.xin-lai.com",
-    "BaseUrl": "http://localhost:13000",
+    "BaseUrl": "http://apigateway.xin-lai.com",
+    //"BaseUrl": "http://localhost:13000",
     //限速配置
     "RateLimitOptions": {
       //白名单
