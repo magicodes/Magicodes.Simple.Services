@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Magicodes.Simple.Services.Host
+namespace Magicodes.Simple.Services.Core.Models
 {
     public partial class AbpUsers
     {
@@ -23,8 +23,6 @@ namespace Magicodes.Simple.Services.Host
             InverseCreatorUser = new HashSet<AbpUsers>();
             InverseDeleterUser = new HashSet<AbpUsers>();
             InverseLastModifierUser = new HashSet<AbpUsers>();
-            ReceiptAddressInfos = new HashSet<ReceiptAddressInfos>();
-            StorePackInfos = new HashSet<StorePackInfos>();
         }
 
         public long Id { get; set; }
@@ -84,7 +82,5 @@ namespace Magicodes.Simple.Services.Host
         public virtual ICollection<AbpUsers> InverseCreatorUser { get; set; }
         public virtual ICollection<AbpUsers> InverseDeleterUser { get; set; }
         public virtual ICollection<AbpUsers> InverseLastModifierUser { get; set; }
-        public virtual ICollection<ReceiptAddressInfos> ReceiptAddressInfos { get; set; }
-        public virtual ICollection<StorePackInfos> StorePackInfos { get; set; }
     }
 }

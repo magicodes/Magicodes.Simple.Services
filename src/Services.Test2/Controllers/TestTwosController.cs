@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Magicodes.Simple.Services.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Services.Test2.Controllers
@@ -12,9 +13,10 @@ namespace Services.Test2.Controllers
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<List<AbpTenants>> Get()
         {
-            return new string[] { "value1", "value2" };
+            MagicodesAdminContext MagicodesAdminContext = new MagicodesAdminContext();
+            return MagicodesAdminContext.AbpTenants.ToList();
         }
 
         // GET api/values/5

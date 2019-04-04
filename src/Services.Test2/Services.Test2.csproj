@@ -18,4 +18,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Magicodes.Simple.Services.Core\Magicodes.Simple.Services.Core.csproj" />
+  </ItemGroup>
+
 </Project>

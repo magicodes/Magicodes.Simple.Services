@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Magicodes.Simple.Services.Host
+namespace Magicodes.Simple.Services.Core.Models
 {
     public partial class AbpTenantNotifications
     {

@@ -96,9 +96,6 @@
       "ServiceName": "API1",
       "UseServiceDiscovery": true,
       "LoadBalancer": "RoundRobin",
-      "LoadBalancerOptions": {
-        "Type": "LeastConnection"
-      },
       "DownstreamHostAndPorts": [
         {
           "Host": "119.29.50.115",
@@ -130,9 +127,6 @@
       "ServiceName": "API2",
       "UseServiceDiscovery": true,
       "LoadBalancer": "RoundRobin",
-      "LoadBalancerOptions": {
-        "Type": "LeastConnection"
-      },
       "DownstreamHostAndPorts": [
         {
           "Host": "111.230.160.62",
