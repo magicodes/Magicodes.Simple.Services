@@ -13,7 +13,14 @@ namespace Services.Test2.Controllers
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<List<AbpTenants>> Get()
+        public ActionResult<IEnumerable<string>> Get()
+        {
+            return new string[] { "TestTwos_value1", "TestTwos_value2" };
+        }
+
+        [HttpGet]
+        [Route("Tenants")]
+        public ActionResult<IList<AbpTenants>> GetTenants()
         {
             MagicodesAdminContext MagicodesAdminContext = new MagicodesAdminContext();
             return MagicodesAdminContext.AbpTenants.ToList();
@@ -25,6 +32,7 @@ namespace Services.Test2.Controllers
         {
             return "value";
         }
+        
 
         // POST api/values
         [HttpPost]
