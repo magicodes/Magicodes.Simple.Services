@@ -16,6 +16,9 @@
 
   <ItemGroup>
     <PackageReference Include="Consul" Version="0.7.2.6" />
+    <PackageReference Include="DotNetCore.CAP" Version="2.5.0" />
+    <PackageReference Include="DotNetCore.CAP.RabbitMQ" Version="2.5.0" />
+    <PackageReference Include="DotNetCore.CAP.SqlServer" Version="2.5.0" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="2.7.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />

@@ -4,9 +4,12 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Consul;
+using DotNetCore.CAP;
+using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -28,7 +31,33 @@ namespace Services.Test1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            
+            Action<CapOptions> capOptions = option =>
+            {
+                option.UseEntityFramework<AppDbContext>();
+                option.UseSqlServer(Configuration.GetConnectionString("Default"));
+                option.UseRabbitMQ("localhost");
+                option.UseDashboard();
+                if (Convert.ToBoolean(Configuration["Cap:UseConsul"]))
+                {
+                    option.UseDiscovery(discovery =>
+                    {
+                        discovery.DiscoveryServerHostName = Configuration["Cap:DiscoveryServerHostName"];
+                        discovery.DiscoveryServerPort = Convert.ToInt32(Configuration["Cap:DiscoveryServerPort"]);
+                        discovery.CurrentNodeHostName = Configuration["Cap:CurrentNodeHostName"];
+                        discovery.CurrentNodePort = Convert.ToInt32(Configuration["Cap:CurrentNodePort"]);
+                        discovery.NodeId = Convert.ToInt32(Configuration["Cap:NodeId"]);
+                        discovery.NodeName = Configuration["Cap:NodeName"];
+                        discovery.MatchPath = Configuration["Cap:MatchPath"];
+                    });
+                }
+
+            };
+            
+            services.AddCap(capOptions);
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("SwaggerAPI1", new Info { Title = "API1", Version = "v1" });

@@ -17,8 +17,8 @@
   ],
   "check": [
     {
-      "id": "API1Check",
-      "name": "API1Check",
+      "id": "APICheck",
+      "name": "APICheck",
       "tcp": "119.29.50.115:80",
       "interval": "10s",
       "timeout": "1s"
