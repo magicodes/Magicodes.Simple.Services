@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DotNetCore.CAP;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Services.Test1.Controllers
@@ -15,6 +16,14 @@ namespace Services.Test1.Controllers
         public ActionResult<IEnumerable<string>> Get()
         {
             return new string[] { "value1", "value2" };
+        }
+
+        [HttpGet("Received")]
+        [CapSubscribe("services.test1.show.time")]
+        public ActionResult<string> GetReceivedMessage(DateTime datetime)
+        {
+            Console.WriteLine("订阅:"+datetime);
+            return "订阅:" + datetime;
         }
 
         // GET api/values/5

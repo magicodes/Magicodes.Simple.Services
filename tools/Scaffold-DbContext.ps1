@@ -1,10 +1,1 @@
-Set-Location ../src
-dotnet ef dbcontext `
-scaffold Name=Default Microsoft.EntityFrameworkCore.SqlServer `
-    --project Magicodes.Simple.Services.Host `
-    --output-dir ../Magicodes.Simple.Services.Core/Models --force
-
-#  指定表
-# --table Artist --table Album
-
-Set-Location ../tools
+多年.Net全栈开发工程师开发经验，技术负责人，偏爱技术架构设计。曾任技术总管。
